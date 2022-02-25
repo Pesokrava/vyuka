@@ -20,7 +20,7 @@ canvas = tkinter.Canvas(width=WIDTH, height=HEIGHT, background=BACKGROUND)
 canvas.pack()
 
 
-def uncenter(x: int, y: int) -> list[int]:
+def uncenter(x: int, y: int) -> list:
     global BALL_SIZE
     return [x-BALL_SIZE//2,
             y-BALL_SIZE//2,
@@ -28,7 +28,7 @@ def uncenter(x: int, y: int) -> list[int]:
             y+BALL_SIZE//2]
 
 
-def center(corner_coords: list) -> list[int]:
+def center(corner_coords: list) -> list:
     return [corner_coords[0] + abs(corner_coords[0]-corner_coords[2])//2,
             corner_coords[1] + abs(corner_coords[1]-corner_coords[3])//2]
 

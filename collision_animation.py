@@ -2,7 +2,7 @@
 import time
 import tkinter
 from random import choice, randint, random
-from typing import Union
+from typing import Union, List
 from itertools import cycle
 from math import sqrt, hypot, floor, acos, asin, atan, cos, sin
 
@@ -37,12 +37,12 @@ canvas = tkinter.Canvas(width=WIDTH, height=HEIGHT, background=BACKGROUND)
 canvas.pack()
 
 
-def generate_balls(no_balls=1, *,
-                   limit=50,  # this limits the number of maximum balls to 50
-                   screen_width=800,
-                   screen_height=600,
-                   radii: Union[int, list[int, int]] = 50,
-                   colors: Union[str, list[str]] = 'red',
+def generate_balls(no_balls: int=1, *,
+                   limit: int=50,  # this limits the number of maximum balls to 50
+                   screen_width: int=800,
+                   screen_height: int=600,
+                   radii: Union[int, List[int]] = 50,
+                   colors: Union[str, List[str]] = 'red',
                    random_colors: bool = False,
                    line_width: int = 1) -> dict:
     if no_balls > limit:
@@ -96,14 +96,14 @@ def generate_balls(no_balls=1, *,
     return balls
 
 
-def uncenter(x: int, y: int, radius) -> list[int, int, int, int]:
+def uncenter(x: int, y: int, radius) -> List[int]:
     return [x-radius,
             y-radius,
             x+radius,
             y+radius]
 
 
-def center(corner_coords: list) -> list[int, int]:
+def center(corner_coords: list) -> List[int]:
     return [corner_coords[0] + abs(corner_coords[0]-corner_coords[2])//2,
             corner_coords[1] + abs(corner_coords[1]-corner_coords[3])//2]
 
